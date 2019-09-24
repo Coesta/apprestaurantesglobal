@@ -71,4 +71,7 @@ dependencies {
 
     // RecycleView
     implementation "androidx.recyclerview:recyclerview:$version_recyclerview"
+
+    // Material design components
+    implementation "com.google.android.material:material:$version_material"
 }

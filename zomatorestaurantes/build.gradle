@@ -13,6 +13,7 @@ buildscript {
         version_navigation = "2.1.0"
         version_retrofit = "2.6.1"
         version_recyclerview = "1.0.0"
+        version_material = "1.1.0-alpha10"
     }
     repositories {
         google()
