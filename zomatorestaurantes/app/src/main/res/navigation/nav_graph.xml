@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/retauranteDetalheFragment"
-        android:name="com.leocoesta.zomatorestaurantes.restaurantedetalhe.RetauranteDetalheFragment"
+        android:name="com.leocoesta.zomatorestaurantes.restaurantedetalhe.RestauranteDetalheFragment"
         android:label="retaurante_detalhe_fragment"
         tools:layout="@layout/retaurante_detalhe_fragment" />
 </navigation>

@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 
 import com.leocoesta.zomatorestaurantes.R
+import com.leocoesta.zomatorestaurantes.databinding.HomeFragmentBinding
 
 class HomeFragment : Fragment() {
 
@@ -21,13 +23,18 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.home_fragment, container, false)
-    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        // TODO: Use the ViewModel
+        val binding: HomeFragmentBinding = DataBindingUtil.inflate(
+            inflater, R.layout.home_fragment, container, false
+        )
+
+        val homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+
+        binding.viewModel = homeViewModel
+
+        binding.lifecycleOwner = this
+
+        return binding.root
     }
 
 }

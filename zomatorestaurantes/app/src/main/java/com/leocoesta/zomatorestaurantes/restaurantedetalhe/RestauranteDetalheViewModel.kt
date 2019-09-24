@@ -1,12 +1,11 @@
-package com.leocoesta.zomatorestaurantes.home
+package com.leocoesta.zomatorestaurantes.restaurantedetalhe
 
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel;
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 
-class HomeViewModel : ViewModel() {
-
+class RestauranteDetalheViewModel : ViewModel() {
     private val viewModelJob = Job()
     private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
