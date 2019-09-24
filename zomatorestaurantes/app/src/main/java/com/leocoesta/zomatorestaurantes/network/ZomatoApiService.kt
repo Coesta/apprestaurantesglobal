@@ -21,7 +21,7 @@ interface ZomatoApiService {
 
     @Headers("user-key: dc0b52faed0ea45b0f7bd744330deb38")
     @GET(value = "locations")
-    suspend fun getLocation(
+    suspend fun getLocations(
         @Query(value = "q") query: String,
         @Query(value = "lat") latitude: Double?,
         @Query(value = "lon") longitude: Double?,
