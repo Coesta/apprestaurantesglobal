@@ -25,17 +25,24 @@ class HomeViewModel : ViewModel() {
     val restaurantes: LiveData<List<Restaurant>>
         get() = _restaurantes
 
-//    private var _restaurantesEncontrados = MutableLiveData<Int>()
-//    val restaurantesEncontrados: LiveData<Int>
-//        get() = _restaurantesEncontrados
-
     private var _categories = MutableLiveData<List<Category>>()
     val categories: LiveData<List<Category>>
         get() = _categories
 
+//    "entity_id": 67,
+//    "title": "São Paulo",
+//    "latitude": -23.536,
+//    "longitude": -46.629,
+
+//    entity_id": 80,
+//    "title": "Salvador",
+//    "latitude": -12.9747,
+//    "longitude": -38.4767,
+
     init {
         viewModelScope.launch {
-            _restaurantes.value = ZomatoApi.zomato.search(27, EntityType.CITY.name).toListRestaurant()
+            val resultadoBusca = ZomatoApi.zomato.search(67, EntityType.CITY.name, 5, -23.536, -46.629)
+            _restaurantes.value = resultadoBusca.toListRestaurant()
             _categories.value = ZomatoApi.zomato.getCategories().toListCategory()
         }
     }

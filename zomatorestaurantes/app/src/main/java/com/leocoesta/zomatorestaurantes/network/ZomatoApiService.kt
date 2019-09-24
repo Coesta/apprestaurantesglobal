@@ -32,7 +32,10 @@ interface ZomatoApiService {
     @GET(value = "search")
     suspend fun search(
         @Query(value = "entity_id") entityId: Int,
-        @Query(value ="entity_type") entityType: String
+        @Query(value = "entity_type") entityType: String,
+        @Query(value = "count") count: Int?,
+        @Query(value = "lat") latitude: Double?,
+        @Query(value = "lon") longitude: Double?
     ): SearchResponse
 }
 
