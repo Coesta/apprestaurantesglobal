@@ -1,18 +1,28 @@
 package com.leocoesta.zomatorestaurantes.repository
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.leocoesta.zomatorestaurantes.enum.EntityType
+import com.leocoesta.zomatorestaurantes.model.CategoriesResponse
 import com.leocoesta.zomatorestaurantes.model.Restaurant
 import com.leocoesta.zomatorestaurantes.network.ZomatoApi
 
 class Repository {
 
-    suspend fun getRestaurants(): LiveData<List<Restaurant>> {
+//    suspend fun getRestaurants(): MutableLiveData<List<Restaurant>> {
+//
+//        val restaurants = MutableLiveData<List<Restaurant>>()
+//
+//        restaurants.value = ZomatoApi.zomato.search(80, EntityType.CITY.name).restaurants
+//
+//        return restaurants
+//    }
 
-        val restaurants = MutableLiveData<List<Restaurant>>()
+    suspend fun getCategories(): MutableLiveData<List<CategoriesResponse>> {
 
-        restaurants.value = ZomatoApi.zomato.search().restaurantes
+        val categories = MutableLiveData<List<CategoriesResponse>>()
 
-        return restaurants
+        categories.value = ZomatoApi.zomato.getCategories().categories
+
+        return categories
     }
 }

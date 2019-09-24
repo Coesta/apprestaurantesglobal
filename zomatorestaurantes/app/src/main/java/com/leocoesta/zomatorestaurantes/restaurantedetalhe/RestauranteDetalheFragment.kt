@@ -17,7 +17,7 @@ class RestauranteDetalheFragment : Fragment() {
         fun newInstance() = RestauranteDetalheFragment()
     }
 
-    private lateinit var viewModel: RestauranteDetalheViewModel
+    private lateinit var restauranteDetalheViewModel: RestauranteDetalheViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,8 +28,7 @@ class RestauranteDetalheFragment : Fragment() {
             inflater, R.layout.retaurante_detalhe_fragment, container, false
         )
 
-        val restauranteDetalheViewModel =
-            ViewModelProviders.of(this).get(RestauranteDetalheViewModel::class.java)
+        restauranteDetalheViewModel = ViewModelProviders.of(this).get(RestauranteDetalheViewModel::class.java)
 
         binding.viewModel = restauranteDetalheViewModel
 

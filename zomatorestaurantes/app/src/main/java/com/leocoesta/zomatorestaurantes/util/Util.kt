@@ -1,4 +1,4 @@
-package com.leocoesta.zomatorestaurantes
+package com.leocoesta.zomatorestaurantes.util
 
 class Util {
 
