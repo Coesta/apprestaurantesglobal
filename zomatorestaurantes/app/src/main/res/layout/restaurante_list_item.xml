@@ -13,35 +13,50 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/restaurante_item_cv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:cardCornerRadius="1dp"
         app:cardElevation="@dimen/card_elevation">
 
-        <ListView
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/restaurante_item_cl"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/restaurante_thumb"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
+                android:layout_height="100dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:ImageUrl="@{restaurante.thumb}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <TextView
                 android:id="@+id/restaurante_nome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{restaurante.name}" />
+                android:layout_marginTop="8dp"
+                android:text="@{restaurante.name}"
+                app:layout_constraintTop_toBottomOf="@+id/restaurante_thumb"
+                tools:layout_editor_absoluteX="-16dp"
+                android:textColor="@color/secondaryTextColor"
+                style="@style/textview_title" />
 
             <TextView
                 android:id="@+id/restaurante_endereco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{restaurante.location.address}" />
+                android:layout_marginTop="8dp"
+                android:text="@{restaurante.location.address}"
+                app:layout_constraintTop_toBottomOf="@+id/restaurante_nome"
+                tools:layout_editor_absoluteX="-43dp"
+                style="@style/textview_subtitle" />
 
-        </ListView>
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 

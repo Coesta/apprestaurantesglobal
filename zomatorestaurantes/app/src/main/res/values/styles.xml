@@ -6,4 +6,14 @@
         <item name="colorAccent">@color/secondaryColor</item>
     </style>
 
+    <style name="textview_title">
+        <item name="android:fontFamily">@font/lobster_two</item>
+        <item name="android:textSize">@dimen/textview_size_title</item>
+    </style>
+
+    <style name="textview_subtitle">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">@dimen/textview_size_endereco</item>
+    </style>
+
 </resources>

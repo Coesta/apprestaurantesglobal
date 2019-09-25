@@ -29,19 +29,13 @@ class HomeViewModel : ViewModel() {
     val categories: LiveData<List<Category>>
         get() = _categories
 
-//    "entity_id": 67,
-//    "title": "São Paulo",
-//    "latitude": -23.536,
-//    "longitude": -46.629,
-
-//    entity_id": 80,
-//    "title": "Salvador",
-//    "latitude": -12.9747,
-//    "longitude": -38.4767,
+    private val _navigateToSelectedRestaurant = MutableLiveData<Restaurant>()
+    val navigateToSelectedRestaurant: LiveData<Restaurant>
+        get() = _navigateToSelectedRestaurant
 
     init {
         viewModelScope.launch {
-            val resultadoBusca = ZomatoApi.zomato.search(67, EntityType.CITY.name, 5, -23.536, -46.629)
+            val resultadoBusca = ZomatoApi.zomato.search(67, EntityType.CITY.name, 35, -23.536, -46.629) // teste para cidade de São Paulo
             _restaurantes.value = resultadoBusca.toListRestaurant()
             _categories.value = ZomatoApi.zomato.getCategories().toListCategory()
         }
@@ -50,5 +44,13 @@ class HomeViewModel : ViewModel() {
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
+    }
+
+    fun showRestauranteDetalhe(restaurant: Restaurant) {
+        _navigateToSelectedRestaurant.value = restaurant
+    }
+
+    fun showRestauranteDetalheComplete() {
+        _navigateToSelectedRestaurant.value = null
     }
 }

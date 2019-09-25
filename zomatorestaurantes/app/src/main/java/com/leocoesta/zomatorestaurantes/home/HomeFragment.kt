@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 
 import com.leocoesta.zomatorestaurantes.R
+import com.leocoesta.zomatorestaurantes.adapter.RestaurantsAdapter
 import com.leocoesta.zomatorestaurantes.databinding.HomeFragmentBinding
 import kotlinx.android.synthetic.main.home_fragment.*
 
@@ -36,11 +37,11 @@ class HomeFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
-        homeViewModel.restaurantes.observe(viewLifecycleOwner, Observer {
-            it?.let { restaurantes ->
-                resultado.text = restaurantes.toString()
-            }
-        })
+//        homeViewModel.restaurantes.observe(viewLifecycleOwner, Observer {
+//            it?.let { restaurantes ->
+//                resultado.text = restaurantes.toString()
+//            }
+//        })
 
 //        homeViewModel.restaurantesEncontrados.observe(viewLifecycleOwner, Observer {
 //            it?.let {
@@ -51,6 +52,10 @@ class HomeFragment : Fragment() {
 //        homeViewModel.categories.observe(viewLifecycleOwner, Observer {
 //            resultado.text = it.toString()
 //        })
+
+        binding.restaurantesLista.adapter = RestaurantsAdapter(RestaurantsAdapter.OnClickListener{
+            homeViewModel.showRestauranteDetalhe(it)
+        })
 
         return binding.root
     }
