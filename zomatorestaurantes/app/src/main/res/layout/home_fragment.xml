@@ -27,7 +27,7 @@
             android:id="@+id/restaurantes_lista"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:listData="@{viewModel.restaurantes}"
+
             />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

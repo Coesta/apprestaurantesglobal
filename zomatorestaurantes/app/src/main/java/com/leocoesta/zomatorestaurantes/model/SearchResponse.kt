@@ -27,7 +27,8 @@ fun SearchResponse.toListRestaurant(): List<Restaurant> {
             location = it.restaurant.location,
             cuisines = it.restaurant.cuisines,
             timings = it.restaurant.timings,
-            hasOnlineDelivery = it.restaurant.hasOnlineDelivery
+            hasOnlineDelivery = it.restaurant.hasOnlineDelivery,
+            thumb = it.restaurant.thumb
         )
     }
 }
