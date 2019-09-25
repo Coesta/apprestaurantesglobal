@@ -1,4 +1,4 @@
-# apprestaurantesglobal
+# App Global Restaurants
 An app to use the Zomato Api
 Kotlin resources a nd Api's Android and components used:
 
