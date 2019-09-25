@@ -25,12 +25,10 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/restaurante_thumb"
+                android:id="@+id/restaurante_featuredImage"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                app:ImageUrl="@{restaurante.thumb}"
+                app:ImageUrl="@{restaurante.featuredImage}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/backgrounds/scenic" />
@@ -41,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@{restaurante.name}"
-                app:layout_constraintTop_toBottomOf="@+id/restaurante_thumb"
+                app:layout_constraintTop_toBottomOf="@+id/restaurante_featuredImage"
                 tools:layout_editor_absoluteX="-16dp"
                 android:textColor="@color/secondaryTextColor"
                 style="@style/textview_title" />
@@ -50,11 +48,30 @@
                 android:id="@+id/restaurante_endereco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="@{restaurante.location.address}"
                 app:layout_constraintTop_toBottomOf="@+id/restaurante_nome"
                 tools:layout_editor_absoluteX="-43dp"
                 style="@style/textview_subtitle" />
+
+            <TextView
+                android:id="@+id/restaurante_cuisines"
+                style="@style/textview_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{restaurante.cuisines}"
+                app:layout_constraintTop_toBottomOf="@+id/restaurante_endereco"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <TextView
+                android:id="@+id/restaurante_timings"
+                style="@style/textview_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{restaurante.timings}"
+                app:layout_constraintTop_toBottomOf="@+id/restaurante_cuisines"
+                tools:layout_editor_absoluteX="8dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

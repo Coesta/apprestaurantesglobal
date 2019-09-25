@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.leocoesta.zomatorestaurantes.home.HomeFragment"
         android:label="home_fragment"
-        tools:layout="@layout/home_fragment" >
+        tools:layout="@layout/home_fragment">
         <action
             android:id="@+id/action_homeFragment_to_retauranteDetalheFragment"
             app:destination="@id/retauranteDetalheFragment" />
@@ -18,5 +18,9 @@
         android:id="@+id/retauranteDetalheFragment"
         android:name="com.leocoesta.zomatorestaurantes.restaurantedetalhe.RestauranteDetalheFragment"
         android:label="retaurante_detalhe_fragment"
-        tools:layout="@layout/retaurante_detalhe_fragment" />
+        tools:layout="@layout/retaurante_detalhe_fragment">
+        <argument
+            android:name="restaurantSelected"
+            app:argType="com.leocoesta.zomatorestaurantes.model.Restaurant" />
+    </fragment>
 </navigation>

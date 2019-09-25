@@ -19,5 +19,7 @@ data class Restaurant(
     val timings: String,
     @Json(name = "has_online_delivery")
     val hasOnlineDelivery: Int,
-    val thumb: String
+    val thumb: String,
+    @Json(name = "featured_image")
+    val featuredImage: String
 ) : Parcelable

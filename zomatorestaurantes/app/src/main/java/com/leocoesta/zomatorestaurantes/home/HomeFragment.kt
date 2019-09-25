@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 
 import com.leocoesta.zomatorestaurantes.R
 import com.leocoesta.zomatorestaurantes.adapter.RestaurantsAdapter
@@ -37,24 +38,15 @@ class HomeFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
-//        homeViewModel.restaurantes.observe(viewLifecycleOwner, Observer {
-//            it?.let { restaurantes ->
-//                resultado.text = restaurantes.toString()
-//            }
-//        })
-
-//        homeViewModel.restaurantesEncontrados.observe(viewLifecycleOwner, Observer {
-//            it?.let {
-//                resultado.text = it.toString()
-//            }
-//        })
-
-//        homeViewModel.categories.observe(viewLifecycleOwner, Observer {
-//            resultado.text = it.toString()
-//        })
-
-        binding.restaurantesLista.adapter = RestaurantsAdapter(RestaurantsAdapter.OnClickListener{
+        binding.restaurantesLista.adapter = RestaurantsAdapter(RestaurantsAdapter.OnClickListener {
             homeViewModel.showRestauranteDetalhe(it)
+        })
+
+        homeViewModel.navigateToSelectedRestaurant.observe(this, Observer {
+            it?.let {
+                this.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToRetauranteDetalheFragment(it))
+                homeViewModel.showRestauranteDetalheComplete()
+            }
         })
 
         return binding.root

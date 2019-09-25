@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Zomato Restaurantes</string>
+    <string name="imagem_do_restaurante">Imagem do Restaurante</string>
 </resources>

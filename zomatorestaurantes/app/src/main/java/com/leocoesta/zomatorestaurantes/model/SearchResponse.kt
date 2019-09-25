@@ -28,7 +28,8 @@ fun SearchResponse.toListRestaurant(): List<Restaurant> {
             cuisines = it.restaurant.cuisines,
             timings = it.restaurant.timings,
             hasOnlineDelivery = it.restaurant.hasOnlineDelivery,
-            thumb = it.restaurant.thumb
+            thumb = it.restaurant.thumb,
+            featuredImage = it.restaurant.featuredImage
         )
     }
 }

@@ -28,7 +28,9 @@ class RestauranteDetalheFragment : Fragment() {
             inflater, R.layout.retaurante_detalhe_fragment, container, false
         )
 
-        restauranteDetalheViewModel = ViewModelProviders.of(this).get(RestauranteDetalheViewModel::class.java)
+        val restauranteDetalhe = RestauranteDetalheFragmentArgs.fromBundle(arguments!!).restaurantSelected
+        val viewModelFactory = RestauranteDetalheViewModelFactory(restauranteDetalhe)
+        restauranteDetalheViewModel = ViewModelProviders.of(this, viewModelFactory).get(RestauranteDetalheViewModel::class.java)
 
         binding.viewModel = restauranteDetalheViewModel
 
